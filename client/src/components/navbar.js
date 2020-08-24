@@ -1,32 +1,39 @@
+// dependencies
 import React, { Component } from "react"
+import { NavLink } from "react-router-dom"
+
+// css
+import logo from "../images/cleaningLogo.png"
+// import "../css/Navbar.css"
 import M from "materialize-css"
 
 class Navbar extends Component {
     componentDidMount() {
         M.AutoInit()
     }
-
     render() {
         return (
             <div>
-                <ul id="dropdown1" className="dropdown-content">
-                    <li><a href="#!">Routine Clean</a></li>
-                    <li><a href="#!">Deep Clean</a></li>
-                </ul>
-                <ul id="dropdown2" className="dropdown-content">
-                    <li><a href="#!">Routine Clean</a></li>
-                    <li><a href="#!">Deep Clean</a></li>
-                </ul>
-                <nav>
+                <nav >
                     <div className="nav-wrapper container">
-                        <a href="" className="brand-logo">Fresh Perspective</a>
+                        <a href="" className="brand-logo"><img id="logo" src={ logo } alt="cleaning-logo"></img><span id="logoName">Fresh Perspective</span></a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down">
-                            <li><a className="dropdown-trigger" href="" data-target="dropdown1">Cleaning Checklist<i className="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a className="dropdown-trigger" href="" data-target="dropdown2">Estimates<i className="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a href="">Booking</a></li>
+                            <li><NavLink to="/">Home</NavLink></li>
+                            <li><NavLink to="/checklist">CleaningChecklist</NavLink></li>
+                            <li><NavLink to="/estimate">Estimate</NavLink></li>
+                            <li><NavLink to="/booking">Booking</NavLink></li>
+                            <li><NavLink to="/employee">EmployeePortal</NavLink></li>
                         </ul>
                     </div>
                 </nav>
+                <ul class="sidenav" id="mobile-demo">
+                    <li><NavLink to="/">Home</NavLink></li>
+                    <li><NavLink to="/checklist">CleaningChecklist</NavLink></li>
+                    <li><NavLink to="/estimate">Estimate</NavLink></li>
+                    <li><NavLink to="/booking">Booking</NavLink></li>
+                    <li><NavLink to="/employee">EmployeePortal</NavLink></li>
+                </ul>
             </div>
         )
     }

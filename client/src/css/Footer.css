@@ -1,0 +1,10 @@
+.page-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #2db92d
+  }
+
+.footer-copyright {
+    background-color: #28a428
+}
