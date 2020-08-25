@@ -6,8 +6,10 @@ import {
   Route
 } from "react-router-dom"
 
-// components
+// components need to change case in nav and footer
+
 import Navbar from "./components/Navbar"
+
 import Footer from "./components/Footer"
 
 // page components
