@@ -15,7 +15,7 @@ import Footer from "./components/Footer"
 // page components
 import Home from "./pages/Home"
 import Checklist from "./pages/Checklist"
-import Estimate from "./pages/Estimate"
+import Estimate from "./pages/Booking"
 import Booking from "./pages/Booking"
 import NotFound from "./pages/NotFound"
 import EmployeePortal from "./pages/EmployeePortal"
