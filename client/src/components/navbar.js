@@ -21,7 +21,6 @@ class Navbar extends Component {
                         <ul className="right hide-on-med-and-down">
                             <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="/checklist">CleaningChecklist</NavLink></li>
-                            <li><NavLink to="/estimate">Estimate</NavLink></li>
                             <li><NavLink to="/booking">Booking</NavLink></li>
                             <li><NavLink to="/employee">EmployeePortal</NavLink></li>
                         </ul>
@@ -30,7 +29,6 @@ class Navbar extends Component {
                 <ul class="sidenav" id="mobile-demo">
                     <li><NavLink to="/">Home</NavLink></li>
                     <li><NavLink to="/checklist">CleaningChecklist</NavLink></li>
-                    <li><NavLink to="/estimate">Estimate</NavLink></li>
                     <li><NavLink to="/booking">Booking</NavLink></li>
                     <li><NavLink to="/employee">EmployeePortal</NavLink></li>
                 </ul>
