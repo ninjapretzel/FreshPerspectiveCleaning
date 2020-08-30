@@ -103,6 +103,13 @@ class Booking extends Component {
                         <label>How often would you like us to clean?</label>
                     </Col>
                     <FormHeader>2. CHOOSE A SERVICE DATE</FormHeader>
+                    <Col>
+                        <Input id="date" type="text"
+                            value={ this.state.selectedDate.toString().slice(0, 15) }
+                            onClick={ this.handleDateInputClick }
+                        />
+                        <label for="first_name" onClick={ this.handleDateInputClick }>{this.state.selectedDate ? "" : "Date"}</label>
+                    </Col>
                     <div style={ this.state.showCalendar ? { display: "block" } : { display: "none" } }>
                         <DatePicker
                             selected={ this.state.startDate }
@@ -114,13 +121,6 @@ class Booking extends Component {
                             inline
                         />
                     </div>
-                    <Col>
-                        <Input id="date" type="text"
-                            value={ this.state.selectedDate.toString().slice(0, 15) }
-                            onClick={ this.handleDateInputClick }
-                        />
-                        <label for="first_name">Date</label>
-                    </Col>
                     <Col>
                         <Input id="time" type="text" />
                         <label for="first_name">Arrival Time</label>
