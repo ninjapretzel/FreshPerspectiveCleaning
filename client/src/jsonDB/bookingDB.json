@@ -1,0 +1,15 @@
+[
+    {
+        "customerId": "uniqueId",
+        "firstName": "Dori",
+        "lastName": "Wang",
+        "fullName": "First Last",
+        "phone": "333.333.3333",
+        "email": "dori@example.com",
+        "address": "123 Main st, Denver, CO80202",
+        "serviceTime": "booking date and time picked from calendar",
+        "notes": "customer input note/instructions etc.",
+        "estimatedQuote": "price taking from estimate",
+        "jobAssignTo": "empty string first, then later on will assign employee's id to link to the job in db"
+    }
+]

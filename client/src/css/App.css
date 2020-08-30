@@ -1,4 +1,26 @@
-/* .app-content {
-  height: 100vh
-} */
+.app-content {
+  /* height: 100%; */
+  padding-top: 20px;
+  margin-bottom: 20px
+}
+
+/* booking page */
+.price-card {
+  position: sticky;
+  top: 0;
+  padding-left: 5px;
+  width: 32%
+}
+
+.btn-bookNow {
+  background-color: #2db92d;
+  width: 96.5%;
+  margin-bottom: 20px;
+  margin-left: 11.25px;
+  
+}
+
+#form-header {
+  margin-left: 11.25px
+}
 

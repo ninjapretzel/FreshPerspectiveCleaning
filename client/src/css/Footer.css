@@ -1,8 +1,9 @@
 .page-footer {
-    position: fixed;
+    /* position: fixed;
     bottom: 0;
-    width: 100%;
-    background-color: #2db92d
+    width: 100%; */
+    background-color: #2db92d;
+    /* height:150px */
   }
 
 .footer-copyright {
