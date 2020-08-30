@@ -1,9 +1,18 @@
 import React from "react"
+import { KitchenCard, BathCard, RoomCard } from "../components/ChecklistCards"
 
 const Checklist = () => {
     return (
-        <div>
-            <h1>Checklist Page</h1>
+        <div className="row">
+            <div className="card col l12 cardLists">
+                <KitchenCard />
+            </div>
+            <div className="card col l12 cardLists">
+                <BathCard />
+            </div>
+            <div className="card col l12 cardLists">
+                <RoomCard />
+            </div>
         </div>
     )
 }

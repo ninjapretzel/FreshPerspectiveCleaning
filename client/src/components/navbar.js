@@ -16,8 +16,8 @@ class Navbar extends Component {
             <div>
                 <nav >
                     <div className="nav-wrapper container">
-                        <a href="" className="brand-logo"><img id="logo" src={ logo } alt="cleaning-logo"></img><span id="logoName">Fresh Perspective</span></a>
-                        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                        <span href="" className="brand-logo"><img id="logo" src={ logo } alt="cleaning-logo"></img><span id="logoName">Fresh Perspective</span></span>
+                        <a href="#menu" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down">
                             <li><NavLink to="/">Home</NavLink></li>
                             <li><NavLink to="/checklist">CleaningChecklist</NavLink></li>
