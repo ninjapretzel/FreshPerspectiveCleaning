@@ -5,12 +5,8 @@ import { FormHeader } from "../components/Forms/FormHeader"
 import M, { Datepicker } from "materialize-css"
 
 // simon start
-// import "react-dates/initialize";
-// import { SingleDatePicker } from "react-dates";
-// import "react-dates/lib/css/_datepicker.css";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
-// import { isWeekend } from "date-fns"
 // simon end
 
 
@@ -123,21 +119,19 @@ class Booking extends Component {
 
                         </div>
 
-                        {/* <row> */}
-                            <Col>
-                                <Input id="date" type="text" 
-                                    value={this.state.selectedDate.toString().slice(0,15)}
-                                    onClick={this.handleDateInputClick}
-                                />
+                        <Col>
+                            <Input id="date" type="text" 
+                                value={this.state.selectedDate.toString().slice(0,15)}
+                                onClick={this.handleDateInputClick}
+                            />
 
-                                <label for="first_name">Date</label>
-                            </Col>
-                            <Col>
-                                <Input id="time" type="text" />
-                                <label for="first_name">Arrival Time</label>
-                            </Col>
+                            <label for="first_name">Date</label>
+                        </Col>
+                        <Col>
+                            <Input id="time" type="text" />
+                            <label for="first_name">Arrival Time</label>
+                        </Col>
 
-                        {/* </row> */}
                         <FormHeader>3. ENTER YOUR CONTACT INFO</FormHeader>
                         <Col>
                             <Input id="first_name" type="text" />
