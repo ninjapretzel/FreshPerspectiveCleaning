@@ -1,9 +1,12 @@
 .page-footer {
-    /* position: fixed;
+    position: sticky;
     bottom: 0;
-    width: 100%; */
     background-color: #2db92d;
-    /* height:150px */
+    padding-top: 0px
+  }
+
+  .footer-row {
+    margin-bottom: 0px
   }
 
 .footer-copyright {

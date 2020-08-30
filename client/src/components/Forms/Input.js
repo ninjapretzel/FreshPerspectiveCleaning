@@ -2,6 +2,6 @@ import React from "react"
 
 export function Input(props) {
     return (
-        <input className="validate input-field" placeholder=" " { ...props } />
+        <input className="validate input-field" { ...props } />
     )
 }

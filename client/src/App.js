@@ -7,15 +7,12 @@ import {
 } from "react-router-dom"
 
 // components need to change case in nav and footer
-
 import Navbar from "./components/Navbar"
-
 import Footer from "./components/Footer"
 
 // page components
 import Home from "./pages/Home"
 import Checklist from "./pages/Checklist"
-import Estimate from "./pages/Booking"
 import Booking from "./pages/Booking"
 import NotFound from "./pages/NotFound"
 import EmployeePortal from "./pages/EmployeePortal"
@@ -34,7 +31,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={ Home } />
           <Route exact path="/checklist" component={ Checklist } />
-          <Route exact path="/estimate" component={ Estimate } />
           <Route exact path="/booking" component={ Booking } />
           <Route exact path="/employee" component={ EmployeePortal } />
           <Route path="*" component={ NotFound } />
