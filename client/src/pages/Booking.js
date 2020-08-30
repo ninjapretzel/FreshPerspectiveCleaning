@@ -2,15 +2,60 @@ import React, { Component } from "react"
 import { Input } from "../components/Forms/Input.js"
 import { Col } from "../components/Forms/Col-s12-l6"
 import { FormHeader } from "../components/Forms/FormHeader"
-import M from "materialize-css"
+import M, { Datepicker } from "materialize-css"
+
+// simon start
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css"
+// simon end
 
 
+// const blockedDate = [
+//     new Date("2020-08/30"),
+//     new Date("2020-09/04"),
+//     new Date("2020-09/05"),
+//     new Date("2020-09/06")
+// ];
 
 class Booking extends Component {
+
+    state = { 
+        showCalenda: false,
+        selectedDate: "",
+        startDate: new Date(),
+        blockedDate: [
+            new Date("2020-08/30"),
+            new Date("2020-09/04"),
+            new Date("2020-09/05"),
+            new Date("2020-09/07"),
+            new Date("2020-09/23"),
+            new Date("2020-09/24"),
+            new Date("2020-09/21"),
+            new Date("2020-09/22"),
+            new Date("2020-09/25")
+        ]
+    }
+
+    handleDateInputClick = () => {
+        this.setState({showCalenda: true})
+    }
+    handleDateChange = (date) => {
+        this.setState({ 
+            startDate: date,
+            selectedDate: date,
+            showCalenda: false,
+        });
+    };
+
+    isWeekday = date => {
+        const day = date.getDay();
+        return day !== 0 && day !== 6 ;
+      };
 
     componentDidMount() {
         M.AutoInit()
     }
+
 
     render() {
         return (
@@ -61,14 +106,32 @@ class Booking extends Component {
                             <label>How often would you like us to clean?</label>
                         </Col>
                         <FormHeader>2. CHOOSE A SERVICE DATE</FormHeader>
+                        <div style={this.state.showCalenda ? {display: "block"} : {display: "none"}}>
+                            <DatePicker
+                                selected={this.state.startDate}
+                                onChange={date => this.handleDateChange(date)}
+                                excludeDates = {this.state.blockedDate}
+                                filterDate={this.isWeekday}
+                                monthsShown={2}
+                                minDate={new Date()}
+                                inline
+                            />
+
+                        </div>
+
                         <Col>
-                            <Input id="date" type="text" />
+                            <Input id="date" type="text" 
+                                value={this.state.selectedDate.toString().slice(0,15)}
+                                onClick={this.handleDateInputClick}
+                            />
+
                             <label for="first_name">Date</label>
                         </Col>
                         <Col>
                             <Input id="time" type="text" />
                             <label for="first_name">Arrival Time</label>
                         </Col>
+
                         <FormHeader>3. ENTER YOUR CONTACT INFO</FormHeader>
                         <Col>
                             <Input id="first_name" type="text" />
