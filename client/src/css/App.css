@@ -7,17 +7,17 @@
 
 /* booking page */
 .price-card {
-  position: sticky;
-  top: 0;
-  padding-left: 5px;
-  width: 32%
+  position: sticky !important;
+  top: 0 !important;
+  margin-left: 5px;
+  width: 32%;
 }
 
 .btn-bookNow {
   background-color: #2db92d;
-  width: 96.5%;
+  width: 103.5%;
   margin-bottom: 20px;
-  margin-left: 11.25px;
+  margin-left: -10px;
 }
 
 #form-header {
