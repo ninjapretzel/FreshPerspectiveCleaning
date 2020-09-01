@@ -53,7 +53,7 @@ function BookingForm(props) {
                 <h5>2. CHOOSE A SERVICE DATE</h5>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
                     <input placeholder=" " id="date" type="text"
-                        date={ props.date }
+                        value={ props.date }
                         onClick={ props.handleDateInputClick }
                     />
                     <label>Date</label>
