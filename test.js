@@ -49,7 +49,9 @@ const dataFromDB = [
 
 const shouldBlock = [];
 
-
+// suppose that the date should be blocked if the date has its dupilcate in database. 
+// didn't count on how many duplicates there are. it should be no more than 2 duplicates since there are no more than 2 sections per day
+// for simplicity, we don't consider abnormal case that has more than 2 duplicates.
 for(let i = 0; i < dataFromDB.length - 1; i++) {
     for(let j = i + 1; j < dataFromDB.length; j++) {
         if(dataFromDB[j].date.getTime() === dataFromDB[i].date.getTime()) {
