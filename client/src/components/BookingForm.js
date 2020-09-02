@@ -5,55 +5,60 @@ import { Col } from "react-materialize"
 
 function BookingForm(props) {
     return (
-        <div>
+        <form onSubmit={ props.handleFormSubmit }>
             <Col className="card" l={ 8 } s={ 12 }>
                 <h5>1. ENTER YOUR PROPERTY INFO</h5>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <select defaultValue={ 0 }>
-                        <option disabled selected>Choose your option</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                        <option value="6">6+</option>
+                    <select name="bedNum" value={ props.bedNum } text={ props.bedNum }
+                        onChange={ props.handleFormInputChange } >
+                        <option disabled value="">Choose your option</option>
+                        {/* {console.log()} */ }
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6+</option>
                     </select>
                     <label>How many bedrooms do you have?</label>
                 </Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <select defaultValue={ 0 }>
-                        <option value="0" disabled selected>Choose your option</option>
-                        <option value="1">1</option>
-                        <option value="1.5">1.5</option>
-                        <option value="2">2</option>
-                        <option value="2.5">2.5</option>
-                        <option value="3">3</option>
-                        <option value="3.5">3.5</option>
-                        <option value="4">4</option>
-                        <option value="4.5">4.5</option>
-                        <option value="5">5+</option>
+                    <select name="bathNum" value={ props.bathNum } onChange={ props.handleFormInputChange }>
+                        <option disabled value="">Choose your option</option>
+                        <option>1</option>
+                        <option>1.5</option>
+                        <option>2</option>
+                        <option>2.5</option>
+                        <option>3</option>
+                        <option>3.5</option>
+                        <option>4</option>
+                        <option>4.5</option>
+                        <option>5+</option>
                     </select>
                     <label>How many bathrooms do you have?</label>
                 </Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <input placeholder=" " id="squareFootage" type="text" />
+                    <input placeholder=" " name="footageNum" type="text"
+                        value={ props.footageNum }
+                        onChange={ props.handleFormInputChange }
+                    />
                     <label>What’s your approximate square footage?</label>
                 </Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <select defaultValue={ "0" }>
-                        <option value="0" disabled selected>Choose your option</option>
-                        <option value="One Time">One Time</option>
-                        <option value="Every week">Every week</option>
-                        <option value="Every 2 weeks">Every 2 weeks</option>
-                        <option value="Every 3 weeks">Every 3 weeks</option>
-                        <option value="Every 4 weeks">Every 4 weeks</option>
+                    <select name="frequency" value={ props.frequency } onChange={ props.handleFormInputChange }>
+                        <option disabled value="">Choose your option</option>
+                        <option>One Time</option>
+                        <option>Every Week</option>
+                        <option>Every 2 Weeks</option>
+                        <option>Every 3 Weeks</option>
+                        <option>Every 4 Weeks</option>
                     </select>
                     <label>How often would you like us to clean?</label>
                 </Col>
                 <h5>2. CHOOSE A SERVICE DATE</h5>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <input placeholder=" " id="date" type="text"
-                        date={ props.date }
+                    <input placeholder=" " name="date" type="text"
+                        value={ props.date }
                         onClick={ props.handleDateInputClick }
                     />
                     <label>Date</label>
@@ -70,48 +75,72 @@ function BookingForm(props) {
                     />
                 </div>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <select defaultValue={ "0" }>
-                        <option value="0" disabled selected>Choose your option</option>
-                        <option value="morning">Morning Arrival between 8AM - 9AM</option>
-                        <option value="afternoon">Afternoon Arrival between 12PM - 1PM</option>
+                    <select value={ props.arrivalTime } name="arrivalTime" onChange={ props.handleFormInputChange }>
+                        <option disabled value="">Choose your option</option>
+                        <option>Morning Arrival between 8AM - 9AM</option>
+                        <option>Afternoon Arrival between 12PM - 1PM</option>
                     </select>
                     <label>Arrival Time</label>
                 </Col>
                 <h5>3. ENTER YOUR CONTACT INFO</h5>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <input id="first_name" type="text" />
+                    <input name="firstName" type="text"
+                        value={ props.firstName }
+                        onChange={ props.handleFormInputChange }
+                    />
                     <label>First Name</label>
                 </Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <input id="last_name" type="text" />
+                    <input name="lastName" type="text"
+                        value={ props.lastName }
+                        onChange={ props.handleFormInputChange }
+                    />
                     <label>Last Name</label>
                 </Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <input id="telephone" type="tel" />
+                    <input name="phone" type="tel"
+                        value={ props.phone }
+                        onChange={ props.handleFormInputChange }
+                    />
                     <label>Phone</label>
                 </Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <input id="email" type="email" />
+                    <input name="email" type="email"
+                        value={ props.email }
+                        onChange={ props.handleFormInputChange }
+                    />
                     <label>Email</label>
                 </Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <input id="address1" type="text" />
+                    <input name="address1" type="text"
+                        value={ props.address1 }
+                        onChange={ props.handleFormInputChange }
+                    />
                     <label>Service Street Address</label>
                 </Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <input id="address2" type="text" />
+                    <input name="address2" type="text"
+                        value={ props.address2 }
+                        onChange={ props.handleFormInputChange }
+                    />
                     <label>Address 2</label>
                 </Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <input id="city" type="text" />
+                    <input name="city" type="text"
+                        value={ props.city }
+                        onChange={ props.handleFormInputChange }
+                    />
                     <label>City</label>
                 </Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <input id="zipCode" type="text" />
+                    <input name="zipCode" type="text"
+                        value={ props.zipCode } onChange={ props.handleFormInputChange } />
                     <label>Zip Code</label>
                 </Col>
                 <Col className="input-field" l={ 12 } s={ 12 }>
-                    <textarea id="textarea2" className="materialize-textarea" data-length="120"></textarea>
+                    <textarea name="notes" className="materialize-textarea" data-length="120"
+                        value={ props.notes }
+                        onChange={ props.handleFormInputChange }></textarea>
                     <label>Special Request/Instruction</label>
                 </Col>
             </Col>
@@ -121,7 +150,7 @@ function BookingForm(props) {
             <Col l={ 8 } s={ 12 }>
                 <button className="btn btn-bookNow" type="submit" name="action">BOOK NOW</button>
             </Col>
-        </div>
+        </form>
     )
 }
 
