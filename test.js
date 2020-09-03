@@ -61,3 +61,17 @@ for(let i = 0; i < dataFromDB.length - 1; i++) {
 }
 console.log(dataFromDB)
 console.log(shouldBlock);
+
+function checkIfdisable(selectedDate) {
+    let disableMorning = false;
+    let disableAfternoon = false;
+    dataFromDB.forEach(item => {
+        if (item.date === selectedDate) {
+            if (item.section === "morning") {
+                disableMorning = true
+            } else if (item.section === "afternoon") {
+                disableAfternoon = true
+            }
+        }
+    });
+}
