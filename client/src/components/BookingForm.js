@@ -9,16 +9,15 @@ function BookingForm(props) {
             <Col className="card" l={ 8 } s={ 12 }>
                 <h5>1. ENTER YOUR PROPERTY INFO</h5>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <select name="bedNum" value={ props.bedNum } text={ props.bedNum }
+                    <select name="bedNum" value={ props.bedNum }
                         onChange={ props.handleFormInputChange } >
-                        <option disabled value="">Choose your option</option>
-                        {/* {console.log()} */ }
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6+</option>
+                        <option disabled default value="">Choose your option</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6+">6+</option>
                     </select>
                     <label>How many bedrooms do you have?</label>
                 </Col>
