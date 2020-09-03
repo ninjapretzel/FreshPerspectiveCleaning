@@ -76,45 +76,44 @@ class Booking extends Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault()
-        console.log(this.state)
         // collecting form data
-        // const { selectedDate,
-        //     bedNum,
-        //     bathNum,
-        //     footageNum,
-        //     frequency,
-        //     arrivalTime,
-        //     firstName,
-        //     lastName,
-        //     phone,
-        //     email,
-        //     address1,
-        //     address2,
-        //     city,
-        //     zipCode,
-        //     notes } = this.state
-        // const formData = {
-        //     selectedDate,
-        //     bedNum,
-        //     bathNum,
-        //     footageNum,
-        //     frequency,
-        //     arrivalTime,
-        //     firstName,
-        //     lastName,
-        //     phone,
-        //     email,
-        //     address1,
-        //     address2,
-        //     city,
-        //     zipCode,
-        //     notes
-        // }
+        const { selectedDate,
+            bedNum,
+            bathNum,
+            footageNum,
+            frequency,
+            arrivalTime,
+            firstName,
+            lastName,
+            phone,
+            email,
+            address1,
+            address2,
+            city,
+            zipCode,
+            notes } = this.state
 
-        axios.post("/api/booknow", this.state)
+        const formData = {
+            selectedDate,
+            bedNum,
+            bathNum,
+            footageNum,
+            frequency,
+            arrivalTime,
+            firstName,
+            lastName,
+            phone,
+            email,
+            address1,
+            address2,
+            city,
+            zipCode,
+            notes
+        }
+
+        axios.post("/api/booknow", formData)
             .then(res => {
                 console.log(res)
-                event.target.reset()
                 this.setState({
                     selectedDate: "",
                     bedNum: "",
@@ -134,6 +133,14 @@ class Booking extends Component {
                 })
             }).catch(err => console.log(err))
     }
+
+    // get route 
+    // pullJobs = () => {
+    //     axios.get("/api/getjobs")
+    //         .then(res => {
+    //             console.log(res)
+    //         })
+    // }
 
     componentDidMount() {
         M.AutoInit()
