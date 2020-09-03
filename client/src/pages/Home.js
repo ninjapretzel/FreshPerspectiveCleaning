@@ -1,6 +1,7 @@
 import React from "react"
 import M from "materialize-css"
 import { Carousel } from "react-materialize"
+import $ from "jquery"
 
 import img1 from "../images/1.jpg"
 import img2 from "../images/2.jpg"
@@ -27,6 +28,11 @@ const images = [
 ]
 
 class Home extends React.Component {
+
+    componentDidMount() {
+        let root = $("#HomeCarousel");
+        root.attr("style", `height: ${window.screen.availWidth * 2/3}px`)
+    }
     
     render() {
         return (
