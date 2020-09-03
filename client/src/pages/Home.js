@@ -32,6 +32,14 @@ class Home extends React.Component {
     componentDidMount() {
         let root = $("#HomeCarousel");
         root.attr("style", `height: ${window.screen.availWidth * 2/3}px`)
+
+        this.interval = window.setInterval(() =>{
+            M.Carousel.getInstance(root).next();
+        }, 5000)
+    }
+
+    componentWillUnmount() {
+        window.clearInterval(this.interval)
     }
     
     render() {
