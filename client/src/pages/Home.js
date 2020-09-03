@@ -14,32 +14,34 @@ import img9 from "../images/9.jpg"
 import img10 from "../images/10.jpg"
 
 const images = [ 
-	img1,
-	img2,
-	img3,
-	img4,
-	img5,
-	img6,
-	img7,
-	img8,
-	img9,
-	img10,
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8,
+    img9,
+    img10,
 ]
 
 class Home extends React.Component {
-	
-	render() {
-		return (
-			<Carousel 
-				carouselId="HomeCarousel"
-				images={images}
-				options={{
-					fullWidth: true,
-				}}
-			
-			/>
-		)
-	}
+    
+    render() {
+        return (
+            <div className="">
+            <Carousel 
+                carouselId="HomeCarousel"
+                images={images}
+                options={{
+                    fullWidth: true,
+                }}
+            
+            />
+            </div>
+        )
+    }
 }
 
 export default Home
