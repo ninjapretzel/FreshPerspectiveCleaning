@@ -50,3 +50,17 @@
 .float-left {
   float: left
 }
+
+/* estimate card */
+#estimate {
+  text-align: center;
+}
+
+#total {
+  padding-top: 10px;
+  border-top: 1px solid gray;
+}
+
+#price {
+  float: right;
+}

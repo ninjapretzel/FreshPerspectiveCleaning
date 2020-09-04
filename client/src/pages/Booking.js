@@ -3,6 +3,7 @@ import BookingForm from "../components/BookingForm"
 import { Row } from "react-materialize"
 import axios from "axios"
 import M from "materialize-css"
+import { calculatePrice } from "../utils/calculatePrice"
 
 class Booking extends Component {
     constructor(props) {
@@ -29,6 +30,8 @@ class Booking extends Component {
 
             // dori codes here
             // form states 
+            showEstimate: false,
+            showPreEstimate: true,
             bedNum: "",
             bathNum: "",
             footageNum: "",
@@ -42,7 +45,8 @@ class Booking extends Component {
             address2: "",
             city: "",
             zipCode: "",
-            notes: ""
+            notes: "",
+            estimate: 0.00
         }
     }
 
@@ -70,7 +74,24 @@ class Booking extends Component {
         const name = event.target.name
 
         this.setState({
-            [name]: value
+            [name]: value,
+        })
+    }
+
+    getEstimate = () => {
+        this.setState({
+            estimate: calculatePrice(this.state.bathNum, this.state.frequency)
+        })
+
+    }
+
+    frequencyChange = (event) => {
+        let value = event.target.value
+        this.setState({
+            frequency: value,
+            showEstimate: true,
+            showPreEstimate: false,
+            estimate: calculatePrice(this.state.bathNum, value)
         })
     }
 
@@ -91,7 +112,7 @@ class Booking extends Component {
             address2,
             city,
             zipCode,
-            notes } = this.state
+            notes, estimate } = this.state
 
         const formData = {
             selectedDate,
@@ -108,7 +129,8 @@ class Booking extends Component {
             address2,
             city,
             zipCode,
-            notes
+            notes,
+            estimate
         }
 
         axios.post("/api/booknow", formData)
@@ -129,7 +151,8 @@ class Booking extends Component {
                     address2: "",
                     city: "",
                     zipCode: "",
-                    notes: ""
+                    notes: "",
+                    estimate: 0.00
                 })
             }).catch(err => console.log(err))
     }
@@ -152,7 +175,7 @@ class Booking extends Component {
                 <BookingForm
                     // calendar simon codes
                     date={ this.state.selectedDate.toString().slice(0, 15) }
-                    style={ this.state.showCalendar ? { display: "block" } : { display: "none" } }
+                    calendarStyle={ this.state.showCalendar ? { display: "block" } : { display: "none" } }
                     isWeekday={ this.isWeekday }
                     excludeDates={ this.state.blockedDate }
                     selected={ this.state.startDate }
@@ -175,6 +198,10 @@ class Booking extends Component {
                     city={ this.state.city }
                     zipCode={ this.state.zipCode }
                     notes={ this.state.notes }
+                    estimate={ this.state.estimate }
+                    frequencyChange={ this.frequencyChange }
+                    estimateStyle={ this.state.showEstimate ? { display: "block" } : { display: "none" } }
+                    preEstimateStyle={ this.state.showPreEstimate ? { display: "block" } : { display: "none" } }
                 />
             </Row>
         )
