@@ -1,6 +1,9 @@
 import React from "react"
 import axios from "axios"
 import { Redirect } from "react-router-dom";
+import M from "materialize-css";
+
+const BACKEND_HOST = "http://localhost:3001";
 
 class EmployeePortal extends React.Component {
     state = {
@@ -8,9 +11,19 @@ class EmployeePortal extends React.Component {
         password: "",
     }
     
-    onSubmit = (event) => {
+    onSubmit = async (event) => {
         event.preventDefault();
-        this.props.history.push("/");
+		
+		const { username, password } = this.state;
+		const result = await axios.post(BACKEND_HOST+ "/login", { username, password })
+
+		const { success, employee, message } = result.data;
+
+		if (success) {
+			this.props.history.push("/");
+		} else {
+			M.toast( {html: message, classes: "red"} );
+		}
     }
     
     captureInput = (event) => {
