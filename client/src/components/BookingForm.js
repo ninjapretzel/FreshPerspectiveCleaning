@@ -1,7 +1,7 @@
 import React from "react"
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
-import { Col } from "react-materialize"
+import { Col, Icon } from "react-materialize"
 
 function BookingForm(props) {
     return (
@@ -44,7 +44,7 @@ function BookingForm(props) {
                     <label>What’s your approximate square footage?</label>
                 </Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
-                    <select name="frequency" value={ props.frequency } onChange={ props.handleFormInputChange }>
+                    <select name="frequency" value={ props.frequency } onChange={ props.frequencyChange }>
                         <option disabled value="">Choose your option</option>
                         <option>One Time</option>
                         <option>Every Week</option>
@@ -62,7 +62,7 @@ function BookingForm(props) {
                     />
                     <label>Date</label>
                 </Col>
-                <div style={ props.style }>
+                <div style={ props.calendarStyle }>
                     <DatePicker
                         selected={ props.selected }
                         onChange={ props.handleDateChange }
@@ -134,7 +134,7 @@ function BookingForm(props) {
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
                     <input name="zipCode" type="text"
                         value={ props.zipCode } onChange={ props.handleFormInputChange } />
-                    <label>Zip Code</label>
+                    <label>Zip Code</label>²²
                 </Col>
                 <Col className="input-field" l={ 12 } s={ 12 }>
                     <textarea name="notes" className="materialize-textarea" data-length="120"
@@ -144,7 +144,15 @@ function BookingForm(props) {
                 </Col>
             </Col>
             <Col className="card price-card" l={ 4 } s={ 12 } >
-                <p>estimated quote display here</p>
+                <h5 id="estimate">ESTIMATE</h5>
+                <div className="container" style={ props.estimateStyle }>
+                    <h6><Icon small>home </Icon>{ props.bedNum } beds / { props.bathNum } baths / { props.footageNum } ft² </h6>
+                    <h6><Icon small>event </Icon>Clean { props.frequency }</h6>
+                </div>
+                <div className="container" style={ props.preEstimateStyle }>
+                    <h6>Your estimate will display below after you enter your property info.</h6>
+                </div>
+                <h5 id="total">TOTAL: <span id="price">$ { props.estimate.toFixed(2) }</span></h5>
             </Col>
             <Col l={ 8 } s={ 12 }>
                 <button className="btn btn-bookNow" type="submit" name="action">BOOK NOW</button>
