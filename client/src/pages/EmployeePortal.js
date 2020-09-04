@@ -20,7 +20,9 @@ class EmployeePortal extends React.Component {
 		const { success, employee, message } = result.data;
 
 		if (success) {
-			this.props.history.push("/");
+			localStorage.userLogin = JSON.stringify(employee);
+
+			this.props.history.push("/" + employee.role );
 		} else {
 			M.toast( {html: message, classes: "red"} );
 		}
