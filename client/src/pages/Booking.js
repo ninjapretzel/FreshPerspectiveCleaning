@@ -3,6 +3,7 @@ import BookingForm from "../components/BookingForm"
 import { Row } from "react-materialize"
 import axios from "axios"
 import M from "materialize-css"
+import { calculatePrice } from "../utils/calculatePrice"
 
 class Booking extends Component {
     constructor(props) {
@@ -29,6 +30,8 @@ class Booking extends Component {
 
             // dori codes here
             // form states 
+            showEstimate: false,
+            showPreEstimate: true,
             bedNum: "",
             bathNum: "",
             footageNum: "",
@@ -42,7 +45,8 @@ class Booking extends Component {
             address2: "",
             city: "",
             zipCode: "",
-            notes: ""
+            notes: "",
+            estimate: 0.00
         }
     }
 
@@ -62,6 +66,22 @@ class Booking extends Component {
         const day = date.getDay();
         return day !== 0 && day !== 6;
     };
+
+    //When this component mounts, get all jobs from MongoDB
+    // componentDidMount() {
+    //     this.getJobs();
+    // };
+
+    getJobs = () => {
+        axios.get("/api/getjobs")
+            .then(res => {
+                console.log("jobs", res)
+                // this.setState({
+                //     selectedDate: "",
+                // })
+            }).catch(err => console.log(err))
+    }
+    
     // simon end
 
     // dori starts form methods
@@ -70,7 +90,24 @@ class Booking extends Component {
         const name = event.target.name
 
         this.setState({
-            [name]: value
+            [name]: value,
+        })
+    }
+
+    getEstimate = () => {
+        this.setState({
+            estimate: calculatePrice(this.state.bathNum, this.state.frequency)
+        })
+
+    }
+
+    frequencyChange = (event) => {
+        let value = event.target.value
+        this.setState({
+            frequency: value,
+            showEstimate: true,
+            showPreEstimate: false,
+            estimate: calculatePrice(this.state.bathNum, value)
         })
     }
 
@@ -91,7 +128,7 @@ class Booking extends Component {
             address2,
             city,
             zipCode,
-            notes } = this.state
+            notes, estimate } = this.state
 
         const formData = {
             selectedDate,
@@ -108,7 +145,8 @@ class Booking extends Component {
             address2,
             city,
             zipCode,
-            notes
+            notes,
+            estimate
         }
 
         axios.post("/api/booknow", formData)
@@ -129,7 +167,8 @@ class Booking extends Component {
                     address2: "",
                     city: "",
                     zipCode: "",
-                    notes: ""
+                    notes: "",
+                    estimate: 0.00
                 })
             }).catch(err => console.log(err))
     }
@@ -143,7 +182,8 @@ class Booking extends Component {
     // }
 
     componentDidMount() {
-        M.AutoInit()
+        M.AutoInit();
+        this.getJobs();
     }
 
     render() {
