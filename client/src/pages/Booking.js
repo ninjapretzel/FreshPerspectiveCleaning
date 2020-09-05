@@ -78,40 +78,40 @@ class Booking extends Component {
         event.preventDefault()
         console.log(this.state)
         // collecting form data
-        // const { selectedDate,
-        //     bedNum,
-        //     bathNum,
-        //     footageNum,
-        //     frequency,
-        //     arrivalTime,
-        //     firstName,
-        //     lastName,
-        //     phone,
-        //     email,
-        //     address1,
-        //     address2,
-        //     city,
-        //     zipCode,
-        //     notes } = this.state
-        // const formData = {
-        //     selectedDate,
-        //     bedNum,
-        //     bathNum,
-        //     footageNum,
-        //     frequency,
-        //     arrivalTime,
-        //     firstName,
-        //     lastName,
-        //     phone,
-        //     email,
-        //     address1,
-        //     address2,
-        //     city,
-        //     zipCode,
-        //     notes
-        // }
+        const { selectedDate,
+            bedNum,
+            bathNum,
+            footageNum,
+            frequency,
+            arrivalTime,
+            firstName,
+            lastName,
+            phone,
+            email,
+            address1,
+            address2,
+            city,
+            zipCode,
+            notes } = this.state
+        const formData = {
+            selectedDate,
+            bedNum,
+            bathNum,
+            footageNum,
+            frequency,
+            arrivalTime,
+            firstName,
+            lastName,
+            phone,
+            email,
+            address1,
+            address2,
+            city,
+            zipCode,
+            notes
+        }
 
-        axios.post("/api/booknow", this.state)
+        axios.post("/booknow/", formData)
             .then(res => {
                 console.log(res)
                 event.target.reset()
