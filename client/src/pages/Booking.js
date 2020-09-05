@@ -66,6 +66,22 @@ class Booking extends Component {
         const day = date.getDay();
         return day !== 0 && day !== 6;
     };
+
+    //When this component mounts, get all jobs from MongoDB
+    // componentDidMount() {
+    //     this.getJobs();
+    // };
+
+    getJobs = () => {
+        axios.get("/api/getjobs")
+            .then(res => {
+                console.log("jobs", res)
+                // this.setState({
+                //     selectedDate: "",
+                // })
+            }).catch(err => console.log(err))
+    }
+    
     // simon end
 
     // dori starts form methods
@@ -166,7 +182,8 @@ class Booking extends Component {
     // }
 
     componentDidMount() {
-        M.AutoInit()
+        M.AutoInit();
+        this.getJobs();
     }
 
     render() {

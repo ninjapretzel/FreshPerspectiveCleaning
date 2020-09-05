@@ -8,7 +8,7 @@ router.post("/booknow", (req, res) => {
 })
 
 router.get("/getjobs", (req, res) => {
-    db.Booking.find({})
+    db.Booking.find()
         .then(data => res.json(data))
         .catch(err => res.status(500).json(err));
 })

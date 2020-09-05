@@ -63,14 +63,16 @@ console.log(dataFromDB)
 console.log(shouldBlock);
 
 function checkIfdisable(selectedDate) {
-    let disableMorning = false;
-    let disableAfternoon = false;
+    let disableSection = {
+        morning: false,
+        afternoon: false
+    }
     dataFromDB.forEach(item => {
         if (item.date === selectedDate) {
             if (item.section === "morning") {
-                disableMorning = true
+                disableSection.morning = true;
             } else if (item.section === "afternoon") {
-                disableAfternoon = true
+                disableSection.morning = true;
             }
         }
     });
