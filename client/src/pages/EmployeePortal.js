@@ -1,9 +1,10 @@
 import React from "react"
 import axios from "axios"
-import { Redirect } from "react-router-dom";
 import M from "materialize-css";
+import Config from "../Config"
+const BACKEND_HOST = Config.BACKEND_HOST
 
-const BACKEND_HOST = "http://localhost:3001";
+
 
 class EmployeePortal extends React.Component {
     state = {
@@ -20,7 +21,7 @@ class EmployeePortal extends React.Component {
 		const { success, token, message, role } = result.data;
 
 		if (success) {
-			localStorage.userLogin = JSON.stringify(token);
+			localStorage.userLogin = (token);
 
 			this.props.history.push("/" + role );
 		} else {
