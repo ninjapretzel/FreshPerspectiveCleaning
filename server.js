@@ -2,18 +2,24 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
-const routes = require("./routes")
+const routes = require("./routes");
+const cors = require("cors");
 
 // define PORT
 const PORT = process.env.PORT || 3001;
 
 // configure dotenv
 require('dotenv').config();
+const corsConfig = {
+	origin: process.env. FRONTEND_ORIGIN || "http://localhost:3000",
+	optionsSuccessStatus: 200
+}
 
 // new express app
 const app = express();
 
 // define middleware
+app.use(cors(corsConfig));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

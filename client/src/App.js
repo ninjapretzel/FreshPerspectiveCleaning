@@ -22,20 +22,24 @@ import 'materialize-css/dist/css/materialize.min.css'
 import "./css/Navbar.css"
 import "./css/Footer.css"
 import './css/App.css';
+import EmployeeControls from './pages/EmployeeControls'
+import AdminControls from './pages/AdminControls'
 
 function App() {
   return (
     <Router>
       <Navbar />
-      <div className="container app-content">
+      {/* <div className="container app-content"> */}
         <Switch>
           <Route exact path="/" component={ Home } />
           <Route exact path="/checklist" component={ Checklist } />
           <Route exact path="/booking" component={ Booking } />
-          <Route exact path="/employee" component={ EmployeePortal } />
+          <Route exact path="/login" component={ EmployeePortal } />
+          <Route exact path="/employee" component={ EmployeeControls } />
+          <Route exact path="/admin" component={ AdminControls } />
           <Route path="*" component={ NotFound } />
         </Switch>
-      </div>
+      {/* </div> */}
       <Footer />
     </Router>
   );

@@ -188,39 +188,37 @@ class Booking extends Component {
 
     render() {
         return (
-            <Row>
-                <BookingForm
-                    // calendar simon codes
-                    date={ this.state.selectedDate.toString().slice(0, 15) }
-                    calendarStyle={ this.state.showCalendar ? { display: "block" } : { display: "none" } }
-                    isWeekday={ this.isWeekday }
-                    excludeDates={ this.state.blockedDate }
-                    selected={ this.state.startDate }
-                    handleDateInputClick={ this.handleDateInputClick }
-                    handleDateChange={ date => this.handleDateChange(date) }
-                    // form dori codes here
-                    handleFormInputChange={ this.handleFormInputChange }
-                    handleFormSubmit={ this.handleFormSubmit }
-                    bedNum={ this.state.bedNum }
-                    bathNum={ this.state.bathNum }
-                    footageNum={ this.state.footageNum }
-                    frequency={ this.state.frequency }
-                    arrivalTime={ this.state.arrivalTime }
-                    firstName={ this.state.firstName }
-                    lastName={ this.state.lastName }
-                    phone={ this.state.phone }
-                    email={ this.state.email }
-                    address1={ this.state.address1 }
-                    address2={ this.state.address2 }
-                    city={ this.state.city }
-                    zipCode={ this.state.zipCode }
-                    notes={ this.state.notes }
-                    estimate={ this.state.estimate }
-                    frequencyChange={ this.frequencyChange }
-                    estimateStyle={ this.state.showEstimate ? { display: "block" } : { display: "none" } }
-                    preEstimateStyle={ this.state.showPreEstimate ? { display: "block" } : { display: "none" } }
-                />
-            </Row>
+            <div className="container app-content">
+                <Row>
+                    <BookingForm
+                        // calendar simon codes
+                        date={ this.state.selectedDate.toString().slice(0, 15) }
+                        style={ this.state.showCalendar ? { display: "block" } : { display: "none" } }
+                        isWeekday={ this.isWeekday }
+                        excludeDates={ this.state.blockedDate }
+                        selected={ this.state.startDate }
+                        handleDateInputClick={ this.handleDateInputClick }
+                        handleDateChange={ date => this.handleDateChange(date) }
+                        // form dori codes here
+                        handleFormInputChange={ this.handleFormInputChange }
+                        handleFormSubmit={ this.handleFormSubmit }
+                        bedNum={ this.state.bedNum }
+                        bathNum={ this.state.bathNum }
+                        footageNum={ this.state.footageNum }
+                        frequency={ this.state.frequency }
+                        arrivalTime={ this.state.arrivalTime }
+                        firstName={ this.state.firstName }
+                        lastName={ this.state.lastName }
+                        phone={ this.state.phone }
+                        email={ this.state.email }
+                        address1={ this.state.address1 }
+                        address2={ this.state.address2 }
+                        city={ this.state.city }
+                        zipCode={ this.state.zipCode }
+                        notes={ this.state.notes }
+                    />
+                </Row>
+            </div>
         )
     }
 }

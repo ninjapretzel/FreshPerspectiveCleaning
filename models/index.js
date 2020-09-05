@@ -1,3 +1,4 @@
 module.exports = {
-    Booking: require("./booking")
+	Booking: require("./booking"),
+	Employee: require("./employee")
 };
