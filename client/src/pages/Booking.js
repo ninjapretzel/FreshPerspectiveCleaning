@@ -60,7 +60,6 @@ class Booking extends Component {
             selectedDate: date,
             showCalendar: false,
         });
-        console.log(date)
     };
     isWeekday = date => {
         const day = date.getDay();
@@ -81,7 +80,7 @@ class Booking extends Component {
                 // })
             }).catch(err => console.log(err))
     }
-    
+
     // simon end
 
     // dori starts form methods
@@ -193,7 +192,7 @@ class Booking extends Component {
                     <BookingForm
                         // calendar simon codes
                         date={ this.state.selectedDate.toString().slice(0, 15) }
-                        style={ this.state.showCalendar ? { display: "block" } : { display: "none" } }
+                        calendarStyle={ this.state.showCalendar ? { display: "block" } : { display: "none" } }
                         isWeekday={ this.isWeekday }
                         excludeDates={ this.state.blockedDate }
                         selected={ this.state.startDate }
@@ -216,6 +215,11 @@ class Booking extends Component {
                         city={ this.state.city }
                         zipCode={ this.state.zipCode }
                         notes={ this.state.notes }
+                        estimate={ this.state.estimate }
+                        getEstimate={ this.getEstimate }
+                        frequencyChange={ this.frequencyChange }
+                        preEstimateStyle={ this.state.showPreEstimate ? { display: "block" } : { display: "none" } }
+                        estimateStyle={ this.state.showEstimate ? { display: "block" } : { display: "none" } }
                     />
                 </Row>
             </div>
