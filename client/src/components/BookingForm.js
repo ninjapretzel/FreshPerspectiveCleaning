@@ -134,7 +134,7 @@ function BookingForm(props) {
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
                     <input name="zipCode" type="text"
                         value={ props.zipCode } onChange={ props.handleFormInputChange } />
-                    <label>Zip Code</label>²²
+                    <label>Zip Code</label>
                 </Col>
                 <Col className="input-field" l={ 12 } s={ 12 }>
                     <textarea name="notes" className="materialize-textarea" data-length="120"
