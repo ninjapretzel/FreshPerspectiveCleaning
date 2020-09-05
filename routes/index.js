@@ -1,5 +1,6 @@
 const router = require("express").Router()
+const apiRoutes = require("./apiRoutes")
 
-router.use("/api/booknow", require("./booking"))
+router.use("/api", apiRoutes)
 
 module.exports = router

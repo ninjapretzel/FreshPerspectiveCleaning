@@ -1,9 +1,11 @@
 import React from "react"
+import axios from "axios"
 
 const EmployeePortal = () => {
+
     return (
         <div>
-            <h1>Employee Portal: employee login</h1>
+            <h3>Employee Portal: employee login page</h3>
         </div>
     )
 }

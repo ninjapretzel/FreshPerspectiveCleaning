@@ -3,6 +3,7 @@ import BookingForm from "../components/BookingForm"
 import { Row } from "react-materialize"
 import axios from "axios"
 import M from "materialize-css"
+import { calculatePrice } from "../utils/calculatePrice"
 
 class Booking extends Component {
     constructor(props) {
@@ -29,6 +30,8 @@ class Booking extends Component {
 
             // dori codes here
             // form states 
+            showEstimate: false,
+            showPreEstimate: true,
             bedNum: "",
             bathNum: "",
             footageNum: "",
@@ -42,7 +45,8 @@ class Booking extends Component {
             address2: "",
             city: "",
             zipCode: "",
-            notes: ""
+            notes: "",
+            estimate: 0.00
         }
     }
 
@@ -62,6 +66,22 @@ class Booking extends Component {
         const day = date.getDay();
         return day !== 0 && day !== 6;
     };
+
+    //When this component mounts, get all jobs from MongoDB
+    // componentDidMount() {
+    //     this.getJobs();
+    // };
+
+    getJobs = () => {
+        axios.get("/api/getjobs")
+            .then(res => {
+                console.log("jobs", res)
+                // this.setState({
+                //     selectedDate: "",
+                // })
+            }).catch(err => console.log(err))
+    }
+    
     // simon end
 
     // dori starts form methods
@@ -70,13 +90,29 @@ class Booking extends Component {
         const name = event.target.name
 
         this.setState({
-            [name]: value
+            [name]: value,
+        })
+    }
+
+    getEstimate = () => {
+        this.setState({
+            estimate: calculatePrice(this.state.bathNum, this.state.frequency)
+        })
+
+    }
+
+    frequencyChange = (event) => {
+        let value = event.target.value
+        this.setState({
+            frequency: value,
+            showEstimate: true,
+            showPreEstimate: false,
+            estimate: calculatePrice(this.state.bathNum, value)
         })
     }
 
     handleFormSubmit = (event) => {
         event.preventDefault()
-        console.log(this.state)
         // collecting form data
         const { selectedDate,
             bedNum,
@@ -92,7 +128,8 @@ class Booking extends Component {
             address2,
             city,
             zipCode,
-            notes } = this.state
+            notes, estimate } = this.state
+
         const formData = {
             selectedDate,
             bedNum,
@@ -108,13 +145,13 @@ class Booking extends Component {
             address2,
             city,
             zipCode,
-            notes
+            notes,
+            estimate
         }
 
-        axios.post("/booknow/", formData)
+        axios.post("/api/booknow", formData)
             .then(res => {
                 console.log(res)
-                event.target.reset()
                 this.setState({
                     selectedDate: "",
                     bedNum: "",
@@ -130,13 +167,23 @@ class Booking extends Component {
                     address2: "",
                     city: "",
                     zipCode: "",
-                    notes: ""
+                    notes: "",
+                    estimate: 0.00
                 })
             }).catch(err => console.log(err))
     }
 
+    // get route 
+    // pullJobs = () => {
+    //     axios.get("/api/getjobs")
+    //         .then(res => {
+    //             console.log(res)
+    //         })
+    // }
+
     componentDidMount() {
-        M.AutoInit()
+        M.AutoInit();
+        this.getJobs();
     }
 
     render() {
@@ -145,7 +192,7 @@ class Booking extends Component {
                 <BookingForm
                     // calendar simon codes
                     date={ this.state.selectedDate.toString().slice(0, 15) }
-                    style={ this.state.showCalendar ? { display: "block" } : { display: "none" } }
+                    calendarStyle={ this.state.showCalendar ? { display: "block" } : { display: "none" } }
                     isWeekday={ this.isWeekday }
                     excludeDates={ this.state.blockedDate }
                     selected={ this.state.startDate }
@@ -168,6 +215,10 @@ class Booking extends Component {
                     city={ this.state.city }
                     zipCode={ this.state.zipCode }
                     notes={ this.state.notes }
+                    estimate={ this.state.estimate }
+                    frequencyChange={ this.frequencyChange }
+                    estimateStyle={ this.state.showEstimate ? { display: "block" } : { display: "none" } }
+                    preEstimateStyle={ this.state.showPreEstimate ? { display: "block" } : { display: "none" } }
                 />
             </Row>
         )
