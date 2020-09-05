@@ -4,6 +4,7 @@ import { Row } from "react-materialize"
 import axios from "axios"
 import M from "materialize-css"
 import { calculatePrice } from "../utils/calculatePrice"
+import blockDates from "../utils/blockDates"
 
 class Booking extends Component {
     constructor(props) {
@@ -15,17 +16,7 @@ class Booking extends Component {
             showCalendar: false,
             selectedDate: "",
             startDate: new Date(),
-            blockedDate: [
-                new Date("2020-08/30"),
-                new Date("2020-09/04"),
-                new Date("2020-09/05"),
-                new Date("2020-09/07"),
-                new Date("2020-09/23"),
-                new Date("2020-09/24"),
-                new Date("2020-09/21"),
-                new Date("2020-09/22"),
-                new Date("2020-09/25")
-            ],
+            blockedDate: [],
             // simon end
 
             // dori codes here
@@ -75,10 +66,10 @@ class Booking extends Component {
     getJobs = () => {
         axios.get("/api/getjobs")
             .then(res => {
-                console.log("jobs", res)
-                // this.setState({
-                //     selectedDate: "",
-                // })
+                const blockDates = blockDates(res.data)
+                this.setState({
+                    blockedDate: blockDates,
+                })
             }).catch(err => console.log(err))
     }
     
