@@ -17,12 +17,12 @@ class EmployeePortal extends React.Component {
 		const { username, password } = this.state;
 		const result = await axios.post(BACKEND_HOST+ "/login", { username, password })
 
-		const { success, employee, message } = result.data;
+		const { success, token, message, role } = result.data;
 
 		if (success) {
-			localStorage.userLogin = JSON.stringify(employee);
+			localStorage.userLogin = JSON.stringify(token);
 
-			this.props.history.push("/" + employee.role );
+			this.props.history.push("/" + role );
 		} else {
 			M.toast( {html: message, classes: "red"} );
 		}

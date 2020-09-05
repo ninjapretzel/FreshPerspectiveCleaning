@@ -5,7 +5,8 @@ const employeeSchema = new Schema({
 	firstName: { type: String },
 	lastName: { type: String },
 	username: { type: String },
-	role: {enum: ["admin", "employee"] }
+	role: {enum: ["admin", "employee"] },
+	hash: { type: String },
 })
 
 const Employee = mongoose.model("Employee", employeeSchema)
