@@ -206,7 +206,7 @@ class Booking extends Component {
                         city={ this.state.city }
                         zipCode={ this.state.zipCode }
                         notes={ this.state.notes }
-                        estimate={ this.state.estimate }
+                        estimate={ this.state.estimate.toFixed(2) }
                         getEstimate={ this.getEstimate }
                         frequencyChange={ this.frequencyChange }
                         preEstimateStyle={ this.state.showPreEstimate ? { display: "block" } : { display: "none" } }

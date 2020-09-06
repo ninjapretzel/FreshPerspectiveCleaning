@@ -152,7 +152,7 @@ function BookingForm(props) {
                 <div className="container" style={ props.preEstimateStyle }>
                     <h6>Your estimate will display below after you enter your property info.</h6>
                 </div>
-                <h5 id="total">TOTAL: <span id="price">$ { props.estimate.toFixed(2) }</span></h5>
+                <h5 id="total">TOTAL: <span id="price">$ { props.estimate }</span></h5>
             </Col>
             <Col l={ 8 } s={ 12 }>
                 <button className="btn btn-bookNow" type="submit" name="action">BOOK NOW</button>
