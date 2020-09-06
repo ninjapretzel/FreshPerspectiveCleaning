@@ -42,8 +42,8 @@ function NewUserForm() {
 		}
 	}
 		
-	return <div className="col s6 row">
-		<h4>New User Form:</h4>
+	return <div className="col s6 row card">
+		<h6 className="center">New User Form:</h6>
 		<div className="input-field col s12">
 			<input id="username" onChange={captureInput} type="text" />
 			<label for="username">User Name</label>

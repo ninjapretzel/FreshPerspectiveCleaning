@@ -38,8 +38,8 @@ class ChangePasswordControl extends React.Component {
 	}
     
     render() {
-        return <div className="col s6">
-			<h4>Change Password Form:</h4>
+        return <div className="col s6 row card">
+			<h6 className="center">Change Password Form:</h6>
        	 	<div className="input-field col s12">
 				<input id="oldPassword" onChange={this.captureInput} type="password" />
 				<label for="oldPassword">Old Password</label>

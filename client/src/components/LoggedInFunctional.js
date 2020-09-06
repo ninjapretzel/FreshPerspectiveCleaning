@@ -28,8 +28,8 @@ function LoggedInControlFunctionalExample() {
 		}
 	}
 		
-	return <div className="col s6 row">
-		<h4>Functional Control Example:</h4>
+	return <div className="col s6 row card">
+		<h6 className="center">Functional Control Example:</h6>
 		<div className="input-field col s12">
 			<input id="testData" onChange={captureInput} type="text" />
 			<label for="testData">Test Data</label>
