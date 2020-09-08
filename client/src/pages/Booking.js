@@ -4,7 +4,7 @@ import { Row } from "react-materialize"
 import axios from "axios"
 import M from "materialize-css"
 import { calculatePrice } from "../utils/calculatePrice"
-import blockDates from "../utils/blockDates"
+import { findBlockDates } from "../utils/findBlockDates"
 
 class Booking extends Component {
     constructor(props) {
@@ -57,15 +57,12 @@ class Booking extends Component {
         return day !== 0 && day !== 6;
     };
 
-    //When this component mounts, get all jobs from MongoDB
-    // componentDidMount() {
-    //     this.getJobs();
-    // };
-
     getJobs = () => {
         axios.get("/api/getjobs")
             .then(res => {
-                const blockDates = blockDates(res.data)
+                console.log(res.data)
+                const blockDates = findBlockDates(res.data)
+                console.log("block", blockDates);
                 this.setState({
                     blockedDate: blockDates,
                 })

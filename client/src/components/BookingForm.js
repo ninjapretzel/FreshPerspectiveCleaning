@@ -3,6 +3,12 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css"
 import { Col, Icon } from "react-materialize"
 
+// datepicker localization
+import { registerLocale } from "react-datepicker"
+import us from "date-fns/locale/en-US"
+registerLocale("us", us)
+
+
 function BookingForm(props) {
     return (
         <form onSubmit={ props.handleFormSubmit }>
@@ -70,6 +76,7 @@ function BookingForm(props) {
                         filterDate={ props.isWeekday }
                         monthsShown={ 2 }
                         minDate={ new Date() }
+                        locale="us"
                         inline
                     />
                 </div>

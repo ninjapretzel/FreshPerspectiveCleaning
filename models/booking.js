@@ -4,9 +4,9 @@ const Schema = mongoose.Schema
 const bookingSchema = new Schema({
     bedNum: { type: String, required: true },
     bathNum: { type: String, required: true },
-    footageNum: { type: String, required: true },
+    footageNum: { type: String, required: true }, // Simon: footageNum might not be required
     frequency: { type: String, required: true },
-    selectedDate: { type: String, required: true },
+    selectedDate: { type: Date, required: true }, // Simon modifies it to Date type form string type
     arrivalTime: { type: String, required: true },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
