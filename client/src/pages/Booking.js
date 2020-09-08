@@ -1,10 +1,9 @@
 import React, { Component } from "react"
 import BookingForm from "../components/BookingForm"
-import { Row } from "react-materialize"
 import axios from "axios"
 import M from "materialize-css"
 import { calculatePrice } from "../utils/calculatePrice"
-import blockDates from "../utils/blockDates"
+import { findBlockDates } from "../utils/findBlockDates"
 
 class Booking extends Component {
     constructor(props) {
@@ -57,15 +56,12 @@ class Booking extends Component {
         return day !== 0 && day !== 6;
     };
 
-    //When this component mounts, get all jobs from MongoDB
-    // componentDidMount() {
-    //     this.getJobs();
-    // };
-
     getJobs = () => {
         axios.get("/api/getjobs")
             .then(res => {
-                const blockDates = blockDates(res.data)
+                console.log(res.data)
+                const blockDates = findBlockDates(res.data)
+                console.log("block", blockDates);
                 this.setState({
                     blockedDate: blockDates,
                 })
@@ -179,40 +175,38 @@ class Booking extends Component {
     render() {
         return (
             <div className="container app-content">
-                <Row>
-                    <BookingForm
-                        // calendar simon codes
-                        date={ this.state.selectedDate.toString().slice(0, 15) }
-                        calendarStyle={ this.state.showCalendar ? { display: "block" } : { display: "none" } }
-                        isWeekday={ this.isWeekday }
-                        excludeDates={ this.state.blockedDate }
-                        selected={ this.state.startDate }
-                        handleDateInputClick={ this.handleDateInputClick }
-                        handleDateChange={ date => this.handleDateChange(date) }
-                        // form dori codes here
-                        handleFormInputChange={ this.handleFormInputChange }
-                        handleFormSubmit={ this.handleFormSubmit }
-                        bedNum={ this.state.bedNum }
-                        bathNum={ this.state.bathNum }
-                        footageNum={ this.state.footageNum }
-                        frequency={ this.state.frequency }
-                        arrivalTime={ this.state.arrivalTime }
-                        firstName={ this.state.firstName }
-                        lastName={ this.state.lastName }
-                        phone={ this.state.phone }
-                        email={ this.state.email }
-                        address1={ this.state.address1 }
-                        address2={ this.state.address2 }
-                        city={ this.state.city }
-                        zipCode={ this.state.zipCode }
-                        notes={ this.state.notes }
-                        estimate={ this.state.estimate }
-                        getEstimate={ this.getEstimate }
-                        frequencyChange={ this.frequencyChange }
-                        preEstimateStyle={ this.state.showPreEstimate ? { display: "block" } : { display: "none" } }
-                        estimateStyle={ this.state.showEstimate ? { display: "block" } : { display: "none" } }
-                    />
-                </Row>
+                <BookingForm
+                    // calendar simon codes
+                    date={ this.state.selectedDate.toString().slice(0, 15) }
+                    calendarStyle={ this.state.showCalendar ? { display: "block" } : { display: "none" } }
+                    isWeekday={ this.isWeekday }
+                    excludeDates={ this.state.blockedDate }
+                    selected={ this.state.startDate }
+                    handleDateInputClick={ this.handleDateInputClick }
+                    handleDateChange={ date => this.handleDateChange(date) }
+                    // form dori codes here
+                    handleFormInputChange={ this.handleFormInputChange }
+                    handleFormSubmit={ this.handleFormSubmit }
+                    bedNum={ this.state.bedNum }
+                    bathNum={ this.state.bathNum }
+                    footageNum={ this.state.footageNum }
+                    frequency={ this.state.frequency }
+                    arrivalTime={ this.state.arrivalTime }
+                    firstName={ this.state.firstName }
+                    lastName={ this.state.lastName }
+                    phone={ this.state.phone }
+                    email={ this.state.email }
+                    address1={ this.state.address1 }
+                    address2={ this.state.address2 }
+                    city={ this.state.city }
+                    zipCode={ this.state.zipCode }
+                    notes={ this.state.notes }
+                    estimate={ this.state.estimate.toFixed(2) }
+                    getEstimate={ this.getEstimate }
+                    frequencyChange={ this.frequencyChange }
+                    preEstimateStyle={ this.state.showPreEstimate ? { display: "block" } : { display: "none" } }
+                    estimateStyle={ this.state.showEstimate ? { display: "block" } : { display: "none" } }
+                />
             </div>
         )
     }

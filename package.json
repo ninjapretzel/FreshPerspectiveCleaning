@@ -19,6 +19,7 @@
   "license": "",
   "dependencies": {
     "argon2": "^0.27.0",
+    "axios": "^0.20.0",
     "cors": "^2.8.5",
     "date-holidays": "^1.6.2",
     "dotenv": "^8.2.0",

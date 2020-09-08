@@ -1,19 +1,37 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import ChangePasswordControl from "../components/ChangePasswordControl"
-import LoggedInControlClass from "../components/LoggedInClass"
+import NewUserForm from "../components/NewUserForm"
 import LogoutButton from "../components/LogoutButton"
+import { Row } from "react-materialize"
+import axios from "axios"
+import EmployeeJobCard from "../components/EmployeeJobCard"
 
-class EmployeeControls extends React.Component {
-	render() {
-		return <div className ="container app-content">
-			<div className = "row card">
-				<h5 className="center">Employee Controls</h5>
+const EmployeeControls = () => {
+
+	const [jobs, setJobs] = useState([])
+
+	useEffect(() => {
+		axios.get("/api/getjob/Jeff")
+			.then(res => setJobs(res.data))
+	}, [])
+
+	return (
+		<div className="container app-content">
+			<h5>Employee Controls</h5>
+			<Row>
+				{ jobs.map((job, _id) => {
+					return (
+						<EmployeeJobCard
+							key={ _id }
+							job={ job }
+						/>
+					)
+				}) }
 				<ChangePasswordControl />
-				<LoggedInControlClass />
 				<LogoutButton />
-			</div>
+			</Row>
 		</div>
-	}
+	)
 }
 
 export default EmployeeControls;
