@@ -11,9 +11,9 @@ registerLocale("us", us)
 
 function BookingForm(props) {
     return (
-        <form onSubmit={ props.handleFormSubmit }>
+        <form onSubmit={ props.handleFormSubmit } className="bookingForm row">
             <Col className="card" l={ 8 } s={ 12 }>
-                <h5>1. ENTER YOUR PROPERTY INFO</h5>
+                <Col l={ 12 } s={ 12 }><h5>1. ENTER YOUR PROPERTY INFO</h5></Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
                     <select name="bedNum" value={ props.bedNum }
                         onChange={ props.handleFormInputChange } >
@@ -60,7 +60,7 @@ function BookingForm(props) {
                     </select>
                     <label>How often would you like us to clean?</label>
                 </Col>
-                <h5>2. CHOOSE A SERVICE DATE</h5>
+                <Col l={ 12 } s={ 12 }><h5>2. CHOOSE A SERVICE DATE</h5></Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
                     <input placeholder=" " name="date" type="text"
                         value={ props.date }
@@ -88,7 +88,7 @@ function BookingForm(props) {
                     </select>
                     <label>Arrival Time</label>
                 </Col>
-                <h5>3. ENTER YOUR CONTACT INFO</h5>
+                <Col l={ 12 } s={ 12 }><h5>3. ENTER YOUR CONTACT INFO</h5></Col>
                 <Col className="validate input-field" l={ 6 } s={ 12 }>
                     <input name="firstName" type="text"
                         value={ props.firstName }
@@ -161,7 +161,7 @@ function BookingForm(props) {
                 </div>
                 <h5 id="total">TOTAL: <span id="price">$ { props.estimate }</span></h5>
             </Col>
-            <Col l={ 8 } s={ 12 }>
+            <Col l={ 8 } s={ 12 } className="bookNow-div">
                 <button className="btn btn-bookNow" type="submit" name="action">BOOK NOW</button>
             </Col>
         </form>
