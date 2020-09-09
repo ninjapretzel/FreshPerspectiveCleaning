@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3001;
 // configure dotenv
 require('dotenv').config();
 const corsConfig = {
-	origin: process.env. FRONTEND_ORIGIN || "http://localhost:3000",
+	origin: process.env.FRONTEND_ORIGIN || "http://localhost:3000",
 	optionsSuccessStatus: 200
 }
 

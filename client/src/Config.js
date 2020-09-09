@@ -1,5 +1,5 @@
 const config = {
-	BACKEND_HOST: "http://localhost:3001",
+	BACKEND_HOST: "https://fpc-backend-1234.herokuapp.com/",
 }
 
 export default config;

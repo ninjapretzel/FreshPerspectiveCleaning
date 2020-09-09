@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/FreshPerspectiveCleaning/static/css/main.94336e65.chunk.css",
+    "main.js": "/FreshPerspectiveCleaning/static/js/main.8adb6fe8.chunk.js",
+    "main.js.map": "/FreshPerspectiveCleaning/static/js/main.8adb6fe8.chunk.js.map",
+    "runtime-main.js": "/FreshPerspectiveCleaning/static/js/runtime-main.f01b3b0b.js",
+    "runtime-main.js.map": "/FreshPerspectiveCleaning/static/js/runtime-main.f01b3b0b.js.map",
+    "static/css/2.6de5cef9.chunk.css": "/FreshPerspectiveCleaning/static/css/2.6de5cef9.chunk.css",
+    "static/js/2.b1ee4bad.chunk.js": "/FreshPerspectiveCleaning/static/js/2.b1ee4bad.chunk.js",
+    "static/js/2.b1ee4bad.chunk.js.map": "/FreshPerspectiveCleaning/static/js/2.b1ee4bad.chunk.js.map",
+    "index.html": "/FreshPerspectiveCleaning/index.html",
+    "precache-manifest.b6a9d97240632881b452592122db946c.js": "/FreshPerspectiveCleaning/precache-manifest.b6a9d97240632881b452592122db946c.js",
+    "service-worker.js": "/FreshPerspectiveCleaning/service-worker.js",
+    "static/css/2.6de5cef9.chunk.css.map": "/FreshPerspectiveCleaning/static/css/2.6de5cef9.chunk.css.map",
+    "static/css/main.94336e65.chunk.css.map": "/FreshPerspectiveCleaning/static/css/main.94336e65.chunk.css.map",
+    "static/js/2.b1ee4bad.chunk.js.LICENSE.txt": "/FreshPerspectiveCleaning/static/js/2.b1ee4bad.chunk.js.LICENSE.txt",
+    "static/media/1.jpg": "/FreshPerspectiveCleaning/static/media/1.d63f1160.jpg",
+    "static/media/10.jpg": "/FreshPerspectiveCleaning/static/media/10.57ab3f2a.jpg",
+    "static/media/2.jpg": "/FreshPerspectiveCleaning/static/media/2.ab5e3dec.jpg",
+    "static/media/3.jpg": "/FreshPerspectiveCleaning/static/media/3.6a5d2ff1.jpg",
+    "static/media/4.jpg": "/FreshPerspectiveCleaning/static/media/4.6ddd846e.jpg",
+    "static/media/5.jpg": "/FreshPerspectiveCleaning/static/media/5.e38915da.jpg",
+    "static/media/6.jpg": "/FreshPerspectiveCleaning/static/media/6.db1dec9c.jpg",
+    "static/media/7.jpg": "/FreshPerspectiveCleaning/static/media/7.fad1b49b.jpg",
+    "static/media/8.jpg": "/FreshPerspectiveCleaning/static/media/8.271972cc.jpg",
+    "static/media/9.jpg": "/FreshPerspectiveCleaning/static/media/9.29045e19.jpg",
+    "static/media/cleaningLogo.png": "/FreshPerspectiveCleaning/static/media/cleaningLogo.bcbb7502.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f01b3b0b.js",
+    "static/css/2.6de5cef9.chunk.css",
+    "static/js/2.b1ee4bad.chunk.js",
+    "static/css/main.94336e65.chunk.css",
+    "static/js/main.8adb6fe8.chunk.js"
+  ]
+}
