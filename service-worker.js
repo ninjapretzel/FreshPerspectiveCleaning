@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/FreshPerspectiveCleaning/precache-manifest.b6a9d97240632881b452592122db946c.js"
+  "/FreshPerspectiveCleaning/precache-manifest.011a49c9d86999abe99a436993c2e30a.js"
 );
 
 self.addEventListener('message', (event) => {
